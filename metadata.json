@@ -1,0 +1,8 @@
+{
+  "name": "PGON Wallet",
+  "description": "Официальный сайт криптокошелька PGON — Оплата криптой по QR-коду через СБП в России",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
