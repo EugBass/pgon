@@ -171,83 +171,144 @@
       position: fixed;
       top: 0;
       left: 0;
+      right: 0;
       width: 100%;
-      height: 76px;
-      background: rgba(11, 5, 24, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-glass);
+      height: 72px;
+      background: rgba(10, 4, 22, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(139, 20, 247, 0.22);
       z-index: 1000;
       display: flex;
       align-items: center;
     }
 
     .nav-inner {
+      width: 100%;
+      max-width: 100%;
+      padding-left: clamp(16px, 2.5vw, 36px);
+      padding-right: clamp(16px, 2.5vw, 36px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: clamp(10px, 1.2vw, 24px);
     }
 
     .brand-logo {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      font-family: var(--font-display);
-      font-size: 1.45rem;
+      gap: 0.65rem;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: 0.04em;
       color: #FFFFFF;
+      flex-shrink: 0;
     }
 
     .brand-logo svg {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      filter: drop-shadow(0 0 12px rgba(139, 20, 247, 0.7));
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      filter: drop-shadow(0 0 10px rgba(139, 20, 247, 0.8));
+      flex-shrink: 0;
     }
 
-    .brand-logo span.dot-pro {
-      color: var(--accent-orange);
-      font-weight: 900;
+    .nav-navigation {
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+      justify-content: center;
+      min-width: 0;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      justify-content: center;
+      gap: clamp(6px, 1.1vw, 22px);
       list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+    }
+
+    .nav-links li {
+      flex-shrink: 0;
     }
 
     .nav-links a {
-      font-size: 0.92rem;
+      font-size: clamp(0.78rem, 0.85vw, 0.92rem);
       font-weight: 500;
-      color: var(--text-muted);
+      color: #CFC5DF;
+      white-space: nowrap;
+      padding: 6px 4px;
+      transition: all 0.2s ease;
+      border-radius: 6px;
     }
 
     .nav-links a:hover {
       color: #FFFFFF;
-      text-shadow: 0 0 12px rgba(224, 170, 255, 0.6);
+      text-shadow: 0 0 12px rgba(224, 170, 255, 0.7);
     }
 
     .btn-header-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.65rem 1.4rem;
+      gap: 0.5rem;
+      padding: 0.58rem 1.25rem;
       background: linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 100%);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 12px;
-      font-family: var(--font-heading);
-      font-size: 0.92rem;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
       font-weight: 700;
-      color: #FFFFFF;
-      box-shadow: 0 0 20px rgba(157, 78, 221, 0.45);
+      color: #FFFFFF !important;
+      box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
       transition: all 0.3s ease;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .btn-header-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(157, 78, 221, 0.7);
+      box-shadow: 0 0 28px rgba(192, 132, 252, 0.75);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: rgba(139, 20, 247, 0.15);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 8px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     /* ==========================================================================
@@ -824,7 +885,21 @@
     /* ==========================================================================
        RESPONSIVE DESIGN (FLUID MEDIA QUERIES)
        ========================================================================== */
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
+      .nav-links {
+        gap: clamp(4px, 0.8vw, 12px);
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+        padding: 4px 2px;
+      }
+      .btn-header-cta {
+        padding: 0.52rem 0.95rem;
+        font-size: 0.82rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
       .hero-section {
         padding-top: clamp(260px, 40vh, 380px);
         padding-bottom: 48px;
@@ -833,8 +908,53 @@
       .site-header {
         height: 68px;
       }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .nav-navigation {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 4, 22, 0.98);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid rgba(139, 20, 247, 0.3);
+        padding: 16px 24px 24px 24px;
+        flex-direction: column;
+        align-items: stretch;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+        z-index: 999;
+      }
+      .nav-navigation.active {
+        max-height: 580px;
+        opacity: 1;
+        pointer-events: auto;
+      }
       .nav-links {
-        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        width: 100%;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        font-size: 0.95rem;
+        display: block;
+        width: 100%;
+        padding: 9px 12px;
+        border-radius: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .nav-links a:hover {
+        background: rgba(139, 20, 247, 0.15);
       }
       .steps-grid {
         grid-template-columns: 1fr;
@@ -910,7 +1030,7 @@
        SITE HEADER NAVIGATION
        ========================================================================== -->
   <header class="site-header">
-    <div class="container nav-inner">
+    <div class="nav-inner">
       <a href="#hero" class="brand-logo" aria-label="PGON Wallet Главная">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="pgon-brand-svg">
           <defs>
@@ -925,14 +1045,19 @@
           <path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/>
           <circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/>
         </svg>
-        <span>PGON<span class="dot-pro">.pro</span></span>
+        <span>PGON</span>
       </a>
 
-      <nav aria-label="Основная навигация">
+      <nav class="nav-navigation" id="mainNav" aria-label="Основная навигация">
         <ul class="nav-links">
           <li><a href="#pipeline">Как работает</a></li>
+          <li><a href="#advantages">Преимущества</a></li>
+          <li><a href="#exchange">Обмен на карту</a></li>
+          <li><a href="#virtual-card">Виртуальная карта</a></li>
+          <li><a href="#scenarios">Сценарии</a></li>
           <li><a href="#tariffs">Тарифы</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#blog">Блог</a></li>
           <li><a href="#support">Поддержка</a></li>
         </ul>
       </nav>
@@ -943,6 +1068,12 @@
         </svg>
         <span>Открыть в Telegram</span>
       </a>
+
+      <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -1049,6 +1180,248 @@
             <h3 class="step-title">Моментальный расчет</h3>
             <p class="step-desc">
               Сумма в рублях автоматически конвертируется с вашего криптобаланса по прозрачному рыночному курсу. Продавец получает рубли через СБП за 1 секунду.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: ADVANTAGES
+         ========================================================================== -->
+    <section class="pipeline-section" id="advantages" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Преимущества</span>
+          <h2 class="section-title">Почему пользователи выбирают <span class="gradient-text">PGON Wallet</span></h2>
+          <p class="section-desc">Криптовалютные расчеты в реальном секторе без посредников, задержек и финансовых рисков.</p>
+        </div>
+
+        <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.5rem; color: #C084FC;">01</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Защита от 115-ФЗ</h3>
+            <p class="step-desc">
+              Все расчеты проводятся как прямая оплата покупки через официальный шлюз СБП без переводов с карт сомнительных физлиц (дропов).
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.5rem; color: #C084FC;">02</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Мгновенная скорость</h3>
+            <p class="step-desc">
+              Время от момента наведения камеры на QR-код до получения чека составляет менее 3 секунд. Продавец видит оплату моментально.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.5rem; color: #C084FC;">03</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Честный биржевой курс</h3>
+            <p class="step-desc">
+              Автоконвертация USDT и TON в рубли по прозрачному спотовому курсу без скрытых наценок, завышенных спредов и комиссий за вывод.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.5rem; color: #C084FC;">04</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Приватность и анонимность</h3>
+            <p class="step-desc">
+              Пополняйте баланс в USDT или TON без прохождения обязательного KYC и верификации паспорта. Ваши данные остаются только вашими.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: EXCHANGE TO CARD
+         ========================================================================== -->
+    <section class="pipeline-section" id="exchange" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Мгновенный обмен</span>
+          <h2 class="section-title">Быстрый вывод и <span class="gradient-text">обмен на карту</span></h2>
+          <p class="section-desc">Выводите рубли на карты любых российских банков напрямую из Telegram за секунды.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">01</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Любые банки РФ</h3>
+            <p class="step-desc">
+              Переводы на карты Сбербанка, Т-Банка (Тинькофф), Альфа-Банка, ВТБ, Райффайзена и других банков по номеру карты или СБП.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">02</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Автоматический процессинг</h3>
+            <p class="step-desc">
+              Без ожидания подтверждений от частных трейдеров. Смарт-контракт автоматически инициирует межбанковский перевод сразу после заявки.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">03</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Гарантия поступления</h3>
+            <p class="step-desc">
+              Каждая транзакция подтверждается официальным фискальным чеком и уникальным идентификатором операции в СБП.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: VIRTUAL CARD
+         ========================================================================== -->
+    <section class="pipeline-section" id="virtual-card" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Цифровой банкинг</span>
+          <h2 class="section-title">Виртуальная карта <span class="gradient-text">PGON Card</span></h2>
+          <p class="section-desc">Оплачивайте покупки в интернете, зарубежные сервисы и подписки прямо с баланса криптовалюты.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">01</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Выпуск за 30 секунд</h3>
+            <p class="step-desc">
+              Мгновенная генерация виртуальной дебетовой карты внутри Telegram Mini App. Никаких бумажных анкет и ожидания доставки пластика.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">02</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Оплата онлайн и подписок</h3>
+            <p class="step-desc">
+              Используйте карту для оплаты покупок на сайтах, маркетплейсах, бронирования отелей, покупки авиабилетов и цифровых сервисов.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">03</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Безопасность и лимиты</h3>
+            <p class="step-desc">
+              Управляйте лимитами на транзакции, моментально замораживайте или перевыпускайте карту в случае необходимости в один клик.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: SCENARIOS
+         ========================================================================== -->
+    <section class="pipeline-section" id="scenarios" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Сценарии использования</span>
+          <h2 class="section-title">Где и как расплачиваться с <span class="gradient-text">PGON Wallet</span></h2>
+          <p class="section-desc">Миллионы торговых точек по всей России уже поддерживают оплату по QR-кодам СБП.</p>
+        </div>
+
+        <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">🛒</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Супермаркеты и продукты</h3>
+            <p class="step-desc">
+              Пятёрочка, Магнит, ВкусВилл, Перекрёсток, Лента и любые магазины у дома с терминалами СБП на кассах.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">☕</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Кафе и рестораны</h3>
+            <p class="step-desc">
+              Оплата счета в ресторанах и кофейнях: просто отсканируйте динамический QR-код в предчеке через PGON Wallet.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">⛽</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v20h6V2H3zm12 0h-3v20h3V2zm6 7v13h-4V9h4z"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">АЗС и транспорт</h3>
+            <p class="step-desc">
+              Заправка автомобиля на АЗС (Газпромнефть, Лукойл, Роснефть), оплата такси, парковок и каршеринга.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">📦</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Онлайн-маркетплейсы</h3>
+            <p class="step-desc">
+              Ozon, Wildberries, Яндекс Маркет, заказ доставки еды и оплата интернет-заказов через QR-код на экране компьютера.
             </p>
           </div>
         </div>
@@ -1488,6 +1861,60 @@
         </div>
       </div>
     </section>
+
+    <!-- ==========================================================================
+         SECTION: BLOG & ARTICLES
+         ========================================================================== -->
+    <section class="pipeline-section" id="blog" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Блог и новости</span>
+          <h2 class="section-title">Полезные статьи о <span class="gradient-text">криптоплатежах</span></h2>
+          <p class="section-desc">Экспертные материалы о законодательстве, безопасности и удобных способах использования криптовалюты.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">01</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Как платить криптой в РФ по СБП в 2026 году</h3>
+            <p class="step-desc">
+              Подробная пошаговая инструкция о механике автоконвертации и легальности покупок через Систему Быстрых Платежей.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">02</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Почему классический P2P опасен для карт</h3>
+            <p class="step-desc">
+              Разбор рисков переводов от третьих лиц, частые причины блокировок по 115-ФЗ и как PGON исключает эти угрозы.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">
+              <span style="font-size: 1.4rem; color: #C084FC;">03</span>
+              <div class="step-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <h3 class="step-title">Архитектура безопасности Telegram Mini Apps</h3>
+            <p class="step-desc">
+              Как устроена криптографическая изоляция ключей, сессий и защита пользовательских балансов в среде Telegram.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ==========================================================================
@@ -1585,6 +2012,26 @@
         hero.addEventListener('mouseleave', () => {
           overlay.style.setProperty('--mouse-x', '50%');
           overlay.style.setProperty('--mouse-y', '50%');
+        });
+      }
+
+      // Mobile Navigation Drawer Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mainNav = document.getElementById('mainNav');
+      if (mobileBtn && mainNav) {
+        mobileBtn.addEventListener('click', () => {
+          const isOpen = mainNav.classList.toggle('active');
+          mobileBtn.classList.toggle('active');
+          mobileBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile drawer when clicking any link
+        mainNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileBtn.classList.remove('active');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
         });
       }
     });
