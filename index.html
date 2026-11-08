@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   
   <!-- Primary SEO Meta Tags -->
   <title>PGON Wallet — Оплата криптой по QR-коду через СБП в России</title>
@@ -262,17 +265,17 @@
     .btn-header-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.58rem 1.25rem;
+      gap: 0.45rem;
+      padding: 0.52rem 1.15rem;
       background: linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 100%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 9999px;
       font-family: var(--font-body);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 700;
       color: #FFFFFF !important;
-      box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
-      transition: all 0.3s ease;
+      box-shadow: 0 0 18px rgba(157, 78, 221, 0.45);
+      transition: all 0.25s ease;
       flex-shrink: 0;
       white-space: nowrap;
     }
@@ -295,35 +298,49 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 5px;
-      width: 40px;
-      height: 40px;
-      background: rgba(139, 20, 247, 0.15);
-      border: 1px solid rgba(192, 132, 252, 0.3);
-      border-radius: 10px;
+      gap: 4.5px;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      background: rgba(139, 20, 247, 0.35);
+      border: 1.5px solid rgba(192, 132, 252, 0.55);
+      border-radius: 9px;
       cursor: pointer;
-      padding: 8px;
+      padding: 0;
       flex-shrink: 0;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 14px rgba(139, 20, 247, 0.35);
+    }
+
+    .mobile-menu-toggle:hover {
+      background: rgba(139, 20, 247, 0.55);
+      border-color: #E0AAFF;
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
     }
 
     .mobile-menu-toggle span {
       display: block;
-      width: 22px;
-      height: 2px;
+      width: 18px;
+      height: 2.4px;
       background: #FFFFFF;
       border-radius: 2px;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+    }
+
+    .mobile-menu-toggle.active {
+      background: rgba(220, 38, 38, 0.35);
+      border-color: rgba(248, 113, 113, 0.8);
     }
 
     .mobile-menu-toggle.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+      transform: translateY(6.9px) rotate(45deg);
     }
     .mobile-menu-toggle.active span:nth-child(2) {
       opacity: 0;
     }
     .mobile-menu-toggle.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+      transform: translateY(-6.9px) rotate(-45deg);
     }
 
     .mobile-nav-cta {
@@ -633,12 +650,141 @@
       position: relative;
     }
 
+    /* Table Scrollbar & Interactive Runner ("Бегунок") */
+    .table-scroll-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .table-runner-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+      background: rgba(24, 13, 48, 0.7);
+      border: 1px solid var(--border-glass);
+      border-radius: 14px;
+      padding: 10px 14px;
+      backdrop-filter: blur(8px);
+    }
+
+    .table-runner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .table-runner-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #E0AAFF;
+    }
+
+    .table-runner-hint svg {
+      width: 18px;
+      height: 18px;
+      color: #C084FC;
+      animation: runnerPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes runnerPulse {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
+
+    .table-runner-counter {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono-tech);
+    }
+
+    .table-runner-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .table-nav-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(139, 20, 247, 0.28);
+      border: 1px solid rgba(192, 132, 252, 0.5);
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .table-nav-btn:hover, .table-nav-btn:active {
+      background: rgba(139, 20, 247, 0.6);
+      border-color: #E0AAFF;
+      transform: scale(1.05);
+    }
+
+    .table-runner-track {
+      flex: 1;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .table-runner-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg, #8B14F7 0%, #C084FC 50%, #FF9100 100%);
+      border-radius: 9999px;
+      box-shadow: 0 0 12px rgba(192, 132, 252, 0.9);
+      cursor: grab;
+      transition: transform 0.05s linear;
+    }
+
     .table-container {
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
       border-radius: 20px;
-      overflow: hidden;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(157, 78, 221, 0.15);
+      scrollbar-width: thin;
+      scrollbar-color: #9D4EDD rgba(255, 255, 255, 0.08);
+    }
+
+    .table-container::-webkit-scrollbar {
+      height: 8px;
+      display: block !important;
+    }
+
+    .table-container::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      margin: 0 12px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #8B14F7, #C084FC);
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
     }
 
     .styled-table {
@@ -924,6 +1070,229 @@
     }
 
     /* ==========================================================================
+       SECTION: BLOG & KNOWLEDGE BASE CARDS & MODAL
+       ========================================================================== */
+    .blog-section {
+      padding: 6.5rem 0;
+      background: linear-gradient(180deg, var(--bg-main) 0%, rgba(20, 9, 44, 0.75) 50%, var(--bg-main) 100%);
+      position: relative;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 18px;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7B2CBF, #C084FC);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glass-hover);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(157, 78, 221, 0.25);
+    }
+
+    .blog-card:hover::before {
+      opacity: 1;
+    }
+
+    .blog-card-top {
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-tag-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .blog-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(123, 44, 191, 0.3);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      color: #E0AAFF;
+    }
+
+    .blog-read-time {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .blog-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .blog-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #C084FC;
+      font-weight: 700;
+      font-size: 0.86rem;
+      background: rgba(139, 20, 247, 0.14);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      cursor: pointer;
+      width: fit-content;
+      transition: all 0.25s ease;
+      margin-top: 1.2rem;
+    }
+
+    .blog-read-btn:hover {
+      background: rgba(139, 20, 247, 0.35);
+      border-color: #E0AAFF;
+      color: #FFFFFF;
+      transform: translateX(4px);
+    }
+
+    /* Article Modal */
+    .blog-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 3, 20, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .blog-modal-backdrop.active {
+      display: flex;
+    }
+
+    .blog-modal-box {
+      background: #15092B;
+      border: 1px solid rgba(192, 132, 252, 0.45);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(157, 78, 221, 0.35);
+      position: relative;
+    }
+
+    .blog-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .blog-modal-close:hover {
+      background: rgba(220, 38, 38, 0.45);
+      border-color: #EF4444;
+    }
+
+    .blog-modal-badge {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 0.78rem;
+      color: #C084FC;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .blog-modal-title {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      padding-right: 32px;
+    }
+
+    .blog-modal-content {
+      font-size: 0.95rem;
+      color: #D1C7E2;
+      line-height: 1.7;
+    }
+
+    .blog-modal-content p {
+      margin-bottom: 14px;
+    }
+
+    .blog-modal-content h4 {
+      color: #FFFFFF;
+      font-size: 1.15rem;
+      margin: 18px 0 8px 0;
+    }
+
+    .nav-icon {
+      display: none;
+    }
+
+    /* ==========================================================================
        RESPONSIVE DESIGN (FLUID MEDIA QUERIES)
        ========================================================================== */
     @media (max-width: 1200px) {
@@ -950,7 +1319,7 @@
         height: 64px;
       }
       .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
       }
       .nav-navigation {
         position: fixed;
@@ -983,24 +1352,35 @@
       .nav-links {
         flex-direction: column;
         align-items: flex-start;
-        gap: 2px;
+        gap: 3px;
         width: 100%;
       }
       .nav-links li {
         width: 100%;
       }
       .nav-links a {
-        font-size: 0.95rem;
-        display: block;
+        font-size: 0.96rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
         width: 100%;
-        padding: 9px 12px;
-        border-radius: 8px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        padding: 11px 14px;
+        border-radius: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
-      .nav-links a:hover {
-        background: rgba(139, 20, 247, 0.15);
+      .nav-links a:hover, .nav-links a:active {
+        background: rgba(139, 20, 247, 0.22);
+        color: #FFFFFF;
       }
-      .pipeline-section, .fees-section, .faq-section {
+      .nav-icon {
+        display: inline-flex;
+        font-size: 1.15rem;
+        width: 24px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .pipeline-section, .fees-section, .faq-section, .blog-section {
         padding: 4.5rem 0;
       }
       .steps-grid {
@@ -1018,8 +1398,19 @@
     }
 
     @media (max-width: 768px) {
-      .pipeline-section, .fees-section, .faq-section {
+      .pipeline-section, .fees-section, .faq-section, .blog-section {
         padding: 3.5rem 0;
+      }
+      .cta-text-full {
+        display: none !important;
+      }
+      .cta-text-mobile {
+        display: inline !important;
+      }
+      .btn-header-cta {
+        padding: 0.44rem 0.82rem;
+        font-size: 0.78rem;
+        gap: 0.32rem;
       }
       .section-header {
         margin: 0 auto 2rem auto;
@@ -1039,53 +1430,61 @@
 
     @media (max-width: 640px) {
       .site-header {
-        height: 60px;
+        height: 58px;
       }
       .nav-inner {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
         gap: 8px;
       }
       .brand-logo {
-        font-size: 1.2rem;
-        gap: 0.5rem;
+        font-size: 1.05rem;
+        gap: 0.45rem;
       }
       .brand-logo svg {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
       }
       .header-right-actions {
-        gap: 8px;
+        gap: 6px;
       }
       .btn-header-cta {
-        padding: 0.42rem 0.8rem;
-        font-size: 0.78rem;
-        gap: 0.35rem;
+        padding: 5px 10px;
+        font-size: 0.74rem;
+        gap: 0.3rem;
+        border-radius: 9999px;
+      }
+      .btn-header-cta svg {
+        width: 14px;
+        height: 14px;
       }
       .cta-text-full {
-        display: none;
+        display: none !important;
       }
       .cta-text-mobile {
-        display: inline;
+        display: inline !important;
         white-space: nowrap;
       }
       .mobile-menu-toggle {
+        display: flex !important;
         width: 36px;
         height: 36px;
-        padding: 7px;
+        min-width: 36px;
+        padding: 0;
         border-radius: 8px;
-        gap: 4px;
+        gap: 3.5px;
       }
       .mobile-menu-toggle span {
-        width: 20px;
+        width: 17px;
+        height: 2.2px;
       }
       .nav-navigation {
-        top: 60px;
+        top: 58px;
         padding: 14px 16px 20px 16px;
         max-height: 0;
       }
       .nav-navigation.active {
-        max-height: calc(100vh - 60px);
+        max-height: calc(100vh - 58px);
       }
       .hero-section {
         min-height: 92vh;
@@ -1284,15 +1683,15 @@
 
       <nav class="nav-navigation" id="mainNav" aria-label="Основная навигация">
         <ul class="nav-links">
-          <li><a href="#pipeline">Как работает</a></li>
-          <li><a href="#advantages">Преимущества</a></li>
-          <li><a href="#exchange">Обмен на карту</a></li>
-          <li><a href="#virtual-card">Виртуальная карта</a></li>
-          <li><a href="#scenarios">Сценарии</a></li>
-          <li><a href="#tariffs">Тарифы</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#blog">Блог</a></li>
-          <li><a href="#support">Поддержка</a></li>
+          <li><a href="#pipeline"><span class="nav-icon">⚡</span><span>Как работает</span></a></li>
+          <li><a href="#advantages"><span class="nav-icon">💎</span><span>Преимущества</span></a></li>
+          <li><a href="#exchange"><span class="nav-icon">💳</span><span>Обмен на карту</span></a></li>
+          <li><a href="#virtual-card"><span class="nav-icon">🌐</span><span>Виртуальная карта</span></a></li>
+          <li><a href="#scenarios"><span class="nav-icon">🛒</span><span>Сценарии</span></a></li>
+          <li><a href="#tariffs"><span class="nav-icon">📊</span><span>Тарифы</span></a></li>
+          <li><a href="#blog"><span class="nav-icon">📰</span><span>Блог</span></a></li>
+          <li><a href="#faq"><span class="nav-icon">❓</span><span>FAQ</span></a></li>
+          <li><a href="#support"><span class="nav-icon">💬</span><span>Поддержка</span></a></li>
         </ul>
         <div class="mobile-nav-cta">
           <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-drawer-cta">
@@ -1310,10 +1709,10 @@
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/>
           </svg>
           <span class="cta-text-full">Открыть в Telegram</span>
-          <span class="cta-text-mobile">В Telegram</span>
+          <span class="cta-text-mobile">В бот</span>
         </a>
 
-        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false">
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Открыть навигационное меню" aria-expanded="false" title="Меню разделов">
           <span></span>
           <span></span>
           <span></span>
@@ -1684,68 +2083,175 @@
           <p class="section-desc">Никаких скрытых спредов. Вы всегда видите точную сумму к списанию до подтверждения платежа.</p>
         </div>
 
-        <div class="table-container">
-          <table class="styled-table">
-            <thead>
-              <tr>
-                <th>Метод пополнения</th>
-                <th>Комиссия ввода</th>
-                <th>Скорость зачисления</th>
-                <th>Приватность / KYC</th>
-                <th>Лимиты за транзакцию</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="method-name-cell">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E0AAFF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8M8 14h8"/></svg>
-                    <span>Прямой ввод USDT / TON (On-Chain)</span>
-                  </div>
-                </td>
-                <td><span class="fee-highlight fee-zero">0%</span></td>
-                <td>1–3 минуты (после 1 подтверждения сети)</td>
-                <td><span class="method-badge badge-anon">Анонимно (Без KYC)</span></td>
-                <td>От 5 USDT до 50 000 USDT</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="method-name-cell">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9100" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    <span>Пополнение через СБП QR (Рубли)</span>
-                  </div>
-                </td>
-                <td><span class="fee-highlight">3.0%</span></td>
-                <td>Мгновенно (&lt; 5 сек)</td>
-                <td><span class="method-badge badge-kyc">Требуется базовый KYC</span></td>
-                <td>От 500 ₽ до 300 000 ₽</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="method-name-cell">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #29B6F6;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/></svg>
-                    <span>Telegram-боты (CryptoBot / xRocket)</span>
-                  </div>
-                </td>
-                <td><span class="fee-highlight">1.5% – 3.0%</span></td>
-                <td>Моментально (внутри Telegram)</td>
-                <td><span class="method-badge badge-bot">Telegram ID</span></td>
-                <td>От 1 USDT без ограничений</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="method-name-cell">
-                    <svg width="20" height="20" viewBox="0 0 100 100" fill="none"><path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="#8B14F7"/><path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/><path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/><path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/><circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/></svg>
-                    <span>Внутренние переводы PGON Transfer</span>
-                  </div>
-                </td>
-                <td><span class="fee-highlight fee-zero">0%</span></td>
-                <td>Мгновенно (0.1 сек)</td>
-                <td><span class="method-badge badge-anon">По никнейму / ID</span></td>
-                <td>Без лимитов</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="table-scroll-wrapper">
+          <!-- Interactive runner bar on mobile/tablet ("Бегунок") -->
+          <div class="table-runner-controls">
+            <div class="table-runner-header">
+              <div class="table-runner-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18-6-6 6-6M15 6l6 6-6 6"/></svg>
+                <span>Листайте таблицу вправо или двигайте бегунок</span>
+              </div>
+              <span class="table-runner-counter" id="tableScrollCounter">1 / 5 колонок</span>
+            </div>
+            <div class="table-runner-bar-wrap">
+              <button type="button" class="table-nav-btn table-nav-left" id="tableScrollLeftBtn" aria-label="Скролл таблицы влево">‹</button>
+              <div class="table-runner-track" id="tableRunnerTrack" title="Нажмите или проведите пальцем для перемещения бегунка">
+                <div class="table-runner-thumb" id="tableRunnerThumb"></div>
+              </div>
+              <button type="button" class="table-nav-btn table-nav-right" id="tableScrollRightBtn" aria-label="Скролл таблицы вправо">›</button>
+            </div>
+          </div>
+
+          <div class="table-container" id="tariffsTableContainer">
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Метод пополнения</th>
+                  <th>Комиссия ввода</th>
+                  <th>Скорость зачисления</th>
+                  <th>Приватность / KYC</th>
+                  <th>Лимиты за транзакцию</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="method-name-cell">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E0AAFF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8M8 14h8"/></svg>
+                      <span>Прямой ввод USDT / TON (On-Chain)</span>
+                    </div>
+                  </td>
+                  <td><span class="fee-highlight fee-zero">0%</span></td>
+                  <td>1–3 минуты (после 1 подтверждения сети)</td>
+                  <td><span class="method-badge badge-anon">Анонимно (Без KYC)</span></td>
+                  <td>От 5 USDT до 50 000 USDT</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="method-name-cell">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9100" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                      <span>Пополнение через СБП QR (Рубли)</span>
+                    </div>
+                  </td>
+                  <td><span class="fee-highlight">3.0%</span></td>
+                  <td>Мгновенно (&lt; 5 сек)</td>
+                  <td><span class="method-badge badge-kyc">Требуется базовый KYC</span></td>
+                  <td>От 500 ₽ до 300 000 ₽</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="method-name-cell">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #29B6F6;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/></svg>
+                      <span>Telegram-боты (CryptoBot / xRocket)</span>
+                    </div>
+                  </td>
+                  <td><span class="fee-highlight">1.5% – 3.0%</span></td>
+                  <td>Моментально (внутри Telegram)</td>
+                  <td><span class="method-badge badge-bot">Telegram ID</span></td>
+                  <td>От 1 USDT без ограничений</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="method-name-cell">
+                      <svg width="20" height="20" viewBox="0 0 100 100" fill="none"><path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="#8B14F7"/><path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/><path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/><path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/><circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/></svg>
+                      <span>Внутренние переводы PGON Transfer</span>
+                    </div>
+                  </td>
+                  <td><span class="fee-highlight fee-zero">0%</span></td>
+                  <td>Мгновенно (0.1 сек)</td>
+                  <td><span class="method-badge badge-anon">По никнейму / ID</span></td>
+                  <td>Без лимитов</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: BLOG & KNOWLEDGE ARTICLES (PLACED DIRECTLY AFTER TARIFFS)
+         ========================================================================== -->
+    <section class="blog-section" id="blog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Блог & База знаний</span>
+          <h2 class="section-title">Полезные статьи о <span class="gradient-text">криптоплатежах в РФ</span></h2>
+          <p class="section-desc">Экспертные материалы о законодательстве, безопасности платежей и практических способах использования криптовалюты без риска блокировок карт.</p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-card-top">
+              <div class="blog-tag-wrap">
+                <span class="blog-badge">⚡ Инструкция</span>
+                <span class="blog-read-time">⏱️ 4 мин</span>
+              </div>
+              <h3 class="blog-card-title">Как платить криптой в РФ по СБП в 2026 году</h3>
+              <p class="blog-card-desc">
+                Пошаговый гайд: как сканировать QR-код на кассе магазина, в кафе или при онлайн-покупке и мгновенно оплачивать с криптокошелька через СБП без P2P-сделок.
+              </p>
+            </div>
+            <button type="button" class="blog-read-btn" data-article="1">
+              <span>Читать статью</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card">
+            <div class="blog-card-top">
+              <div class="blog-tag-wrap">
+                <span class="blog-badge" style="background: rgba(239, 68, 68, 0.2); border-color: rgba(248, 113, 113, 0.4); color: #FCA5A5;">🛡️ Безопасность</span>
+                <span class="blog-read-time">⏱️ 6 мин</span>
+              </div>
+              <h3 class="blog-card-title">Почему классический P2P опасен для банковских карт</h3>
+              <p class="blog-card-desc">
+                Разбор реальных рисков переводов от неизвестных третьих лиц, частые причины блокировок по 115-ФЗ и как PGON устраняет контакт с дропами и сомнительными картами.
+              </p>
+            </div>
+            <button type="button" class="blog-read-btn" data-article="2">
+              <span>Читать статью</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card">
+            <div class="blog-card-top">
+              <div class="blog-tag-wrap">
+                <span class="blog-badge" style="background: rgba(59, 130, 246, 0.2); border-color: rgba(96, 165, 250, 0.4); color: #93C5FD;">⚙️ Технологии</span>
+                <span class="blog-read-time">⏱️ 5 мин</span>
+              </div>
+              <h3 class="blog-card-title">Архитектура безопасности Telegram Mini Apps</h3>
+              <p class="blog-card-desc">
+                Как устроена криптографическая изоляция ключей, авторизация сессий и защита пользовательских балансов прямо внутри мессенджера Telegram.
+              </p>
+            </div>
+            <button type="button" class="blog-read-btn" data-article="3">
+              <span>Читать статью</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="blog-card">
+            <div class="blog-card-top">
+              <div class="blog-tag-wrap">
+                <span class="blog-badge" style="background: rgba(16, 185, 129, 0.2); border-color: rgba(52, 211, 153, 0.4); color: #6EE7B7;">💳 Лайфхак</span>
+                <span class="blog-read-time">⏱️ 3 мин</span>
+              </div>
+              <h3 class="blog-card-title">Виртуальные карты PGON: оплата зарубежных сервисов</h3>
+              <p class="blog-card-desc">
+                Как выпустить предоплаченную международную карту за 30 секунд для оплаты зарубежных сервисов: ChatGPT Plus, Midjourney, Spotify, Booking и Steam.
+              </p>
+            </div>
+            <button type="button" class="blog-read-btn" data-article="4">
+              <span>Читать статью</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </article>
         </div>
       </div>
     </section>
@@ -2107,60 +2613,21 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION: BLOG & ARTICLES
-         ========================================================================== -->
-    <section class="pipeline-section" id="blog" style="padding-top: 2rem;">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Блог и новости</span>
-          <h2 class="section-title">Полезные статьи о <span class="gradient-text">криптоплатежах</span></h2>
-          <p class="section-desc">Экспертные материалы о законодательстве, безопасности и удобных способах использования криптовалюты.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">
-              <span style="font-size: 1.4rem; color: #C084FC;">01</span>
-              <div class="step-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-              </div>
-            </div>
-            <h3 class="step-title">Как платить криптой в РФ по СБП в 2026 году</h3>
-            <p class="step-desc">
-              Подробная пошаговая инструкция о механике автоконвертации и легальности покупок через Систему Быстрых Платежей.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">
-              <span style="font-size: 1.4rem; color: #C084FC;">02</span>
-              <div class="step-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              </div>
-            </div>
-            <h3 class="step-title">Почему классический P2P опасен для карт</h3>
-            <p class="step-desc">
-              Разбор рисков переводов от третьих лиц, частые причины блокировок по 115-ФЗ и как PGON исключает эти угрозы.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">
-              <span style="font-size: 1.4rem; color: #C084FC;">03</span>
-              <div class="step-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-            </div>
-            <h3 class="step-title">Архитектура безопасности Telegram Mini Apps</h3>
-            <p class="step-desc">
-              Как устроена криптографическая изоляция ключей, сессий и защита пользовательских балансов в среде Telegram.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <!-- ==========================================================================
+       BLOG ARTICLE MODAL READER
+       ========================================================================== -->
+  <div class="blog-modal-backdrop" id="blogModal" aria-hidden="true" role="dialog">
+    <div class="blog-modal-box">
+      <button type="button" class="blog-modal-close" id="closeBlogModal" aria-label="Закрыть статью">✕</button>
+      <span class="blog-modal-badge" id="modalBadge">Инструкция</span>
+      <h3 class="blog-modal-title" id="modalTitle">Заголовок статьи</h3>
+      <div class="blog-modal-content" id="modalContent">
+        <!-- Content injected dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        SECTION 5: FOOTER
@@ -2194,6 +2661,7 @@
             <li><a href="#hero">Главная</a></li>
             <li><a href="#pipeline">Как это работает</a></li>
             <li><a href="#tariffs">Тарифная сетка</a></li>
+            <li><a href="#blog">Статьи блога</a></li>
             <li><a href="#faq">База знаний FAQ</a></li>
           </ul>
         </div>
@@ -2235,42 +2703,39 @@
   </a>
 
   <!-- ==========================================================================
-       NATIVE JAVASCRIPT EVENT PIPELINE (FLASHLIGHT / MASK TRACKING)
+       SCRIPTS: HERO MASK, MOBILE DRAWER, TARIFFS RUNNER & BLOG MODAL
        ========================================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // 1. Hero Ambient Torch Tracking
       const hero = document.querySelector('.hero-section');
       const overlay = document.querySelector('.hero-mask-overlay');
-
       if (hero && overlay) {
         hero.addEventListener('mousemove', (e) => {
           const bounds = hero.getBoundingClientRect();
           const x = e.clientX - bounds.left;
           const y = e.clientY - bounds.top;
-
-          // Push mouse tracking parameters straight into CSS variables at 60 FPS
           overlay.style.setProperty('--mouse-x', `${x}px`);
           overlay.style.setProperty('--mouse-y', `${y}px`);
         });
-        
-        // Clean exit behavior if mouse leaves the frame
         hero.addEventListener('mouseleave', () => {
           overlay.style.setProperty('--mouse-x', '50%');
           overlay.style.setProperty('--mouse-y', '50%');
         });
       }
 
-      // Mobile Navigation Drawer Toggle
+      // 2. Mobile Navigation Drawer Toggle & Navigation
       const mobileBtn = document.getElementById('mobileMenuBtn');
       const mainNav = document.getElementById('mainNav');
       if (mobileBtn && mainNav) {
-        mobileBtn.addEventListener('click', () => {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
           const isOpen = mainNav.classList.toggle('active');
           mobileBtn.classList.toggle('active');
           mobileBtn.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close mobile drawer when clicking any link
+        // Close mobile drawer when clicking any anchor
         mainNav.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             mainNav.classList.remove('active');
@@ -2288,6 +2753,163 @@
           }
         });
       }
+
+      // 3. Tariffs Table Horizontal Scroll Runner ("Бегунок")
+      const tableContainer = document.getElementById('tariffsTableContainer');
+      const runnerThumb = document.getElementById('tableRunnerThumb');
+      const runnerTrack = document.getElementById('tableRunnerTrack');
+      const scrollLeftBtn = document.getElementById('tableScrollLeftBtn');
+      const scrollRightBtn = document.getElementById('tableScrollRightBtn');
+      const scrollCounter = document.getElementById('tableScrollCounter');
+
+      function updateTableRunner() {
+        if (!tableContainer || !runnerThumb || !runnerTrack) return;
+        const maxScroll = tableContainer.scrollWidth - tableContainer.clientWidth;
+        if (maxScroll <= 2) {
+          runnerThumb.style.width = '100%';
+          runnerThumb.style.transform = 'translateX(0px)';
+          if (scrollCounter) scrollCounter.textContent = 'Все 5 колонок';
+          return;
+        }
+
+        const visibleRatio = tableContainer.clientWidth / tableContainer.scrollWidth;
+        const thumbWidthPx = Math.max(40, runnerTrack.clientWidth * visibleRatio);
+        runnerThumb.style.width = `${thumbWidthPx}px`;
+
+        const availableTrackWidth = runnerTrack.clientWidth - thumbWidthPx;
+        const scrollFraction = Math.max(0, Math.min(1, tableContainer.scrollLeft / maxScroll));
+        const translateX = scrollFraction * availableTrackWidth;
+        runnerThumb.style.transform = `translateX(${translateX}px)`;
+
+        if (scrollCounter) {
+          const colIndex = Math.min(5, Math.floor(scrollFraction * 4) + 1);
+          scrollCounter.textContent = `${colIndex}–${Math.min(5, colIndex + 2)} / 5 колонок`;
+        }
+      }
+
+      if (tableContainer) {
+        tableContainer.addEventListener('scroll', updateTableRunner, { passive: true });
+        window.addEventListener('resize', updateTableRunner);
+        // Initial measurement
+        setTimeout(updateTableRunner, 150);
+      }
+
+      if (scrollLeftBtn && tableContainer) {
+        scrollLeftBtn.addEventListener('click', () => {
+          tableContainer.scrollBy({ left: -220, behavior: 'smooth' });
+        });
+      }
+
+      if (scrollRightBtn && tableContainer) {
+        scrollRightBtn.addEventListener('click', () => {
+          tableContainer.scrollBy({ left: 220, behavior: 'smooth' });
+        });
+      }
+
+      if (runnerTrack && tableContainer) {
+        runnerTrack.addEventListener('click', (e) => {
+          const rect = runnerTrack.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const fraction = Math.max(0, Math.min(1, clickX / rect.width));
+          const maxScroll = tableContainer.scrollWidth - tableContainer.clientWidth;
+          tableContainer.scrollTo({ left: fraction * maxScroll, behavior: 'smooth' });
+        });
+      }
+
+      // 4. Blog Articles Interactive Modal Reader
+      const blogArticles = {
+        '1': {
+          badge: '⚡ Инструкция',
+          title: 'Как платить криптой в РФ по СБП в 2026 году',
+          content: `
+            <p>Система Быстрых Платежей (СБП) Банка России стала основным способом расчетов в российской рознице: QR-коды установлены в 95% магазинов, ресторанов, на заправках и в интернет-магазинах.</p>
+            <h4>Механика мгновенной автоконвертации</h4>
+            <p>Кошелек PGON Wallet позволяет оплачивать любые счета СБП напрямую с баланса USDT или TON. Вы открываете Telegram Mini App, нажимаете кнопку «Оплатить СБП» и сканируете QR-код продавца камерой смартфона.</p>
+            <p>В момент сканирования система считывает назначение платежа и точную сумму в рублях. Внутренний ликвидный шлюз фиксирует курс конвертации на 60 секунд. Вы подтверждаете оплату, и в течение 1–2 секунд продавец получает рубли через СБП с официального расчетного счета лицензированного эквайера.</p>
+            <h4>Юридическая чистота и отсутствие рисков 115-ФЗ</h4>
+            <p>Главное отличие PGON от традиционного P2P-обмена: в транзакции отсутствуют переводы с карт третьих лиц (дропов). Платеж поступает продавцу напрямую от банковского платежного агрегатора. Ваши банковские карты не участвуют в цепочке, что на 100% исключает блокировки по 115-ФЗ.</p>
+          `
+        },
+        '2': {
+          badge: '🛡️ Безопасность',
+          title: 'Почему классический P2P опасен для банковских карт',
+          content: `
+            <p>Классические P2P-площадки требуют от пользователя продавать криптовалюту незнакомым физическим лицам. В 2024–2026 годах регуляторный контроль Центробанка и Росфинмониторинга достиг максимальной строгости.</p>
+            <h4>Основные угрозы P2P-сделок:</h4>
+            <p><strong>1. Дропперские счета:</strong> Контрагент на P2P может перевести вам средства с карты, украденной у третьих лиц или замешанной в мошеннических схемах. Ваша карта немедленно вносится банком в стоп-лист ЦБ.</p>
+            <p><strong>2. Блокировка по 115-ФЗ:</strong> Получение множественных переводов от разных физических лиц расценивается банками как незаконная предпринимательская деятельность или отмывание средств.</p>
+            <p><strong>3. «Треугольники» и чарджбэки:</strong> Мошенник создает ордер, а оплачивает его третья жертва. После отмены сделки полиция блокирует счета всех участников цепочки.</p>
+            <h4>Решение PGON</h4>
+            <p>PGON полностью устраняет P2P-звено. Конвертация происходит в автоматическом режиме через институциональные пулы ликвидности без переводов между физическими лицами.</p>
+          `
+        },
+        '3': {
+          badge: '⚙️ Технологии',
+          title: 'Архитектура безопасности Telegram Mini Apps',
+          content: `
+            <p>Telegram Mini Apps (TMA) стали новым стандартом для Web3-приложений благодаря полной интеграции в экосистему защищенного мессенджера.</p>
+            <h4>Криптографическая изоляция ключей</h4>
+            <p>В PGON Wallet применяется архитектура некастодиального разделения секретов и аппаратное шифрование сессий. Приватные ключи и биометрические подписи шифруются алгоритмом AES-256-GCM.</p>
+            <h4>Валидация через Telegram InitData HMAC-SHA256</h4>
+            <p>Каждый запрос от интерфейса кошелька к бэкенду подписывается криптографическим хэшем на стороне клиента с использованием секретного ключа бота. Подделать или перехватить сессию невозможно даже при MITM-атаках в публичных Wi-Fi сетях.</p>
+            <p>Серверная инфраструктура развернута в изолированных защищенных анклавах с круглосуточным мониторингом аномалий и автоматической блокировкой подозрительных транзакций.</p>
+          `
+        },
+        '4': {
+          badge: '💳 Лайфхак',
+          title: 'Виртуальные карты PGON: оплата зарубежных сервисов',
+          content: `
+            <p>Для пользователей из России оплата зарубежных подписок и услуг остается сложной задачей. PGON решает этот вопрос с помощью моментального выпуска предоплаченных виртуальных карт Visa и Mastercard.</p>
+            <h4>Где работает виртуальная карта PGON?</h4>
+            <p>Карта принимается для оплаты подписок OpenAI ChatGPT Plus, Midjourney, Claude, Spotify, Netflix, YouTube Premium, бронирования отелей на Booking и Airbnb, а также в игровых сервисах Steam, PlayStation Network и App Store.</p>
+            <h4>Как выпустить карту:</h4>
+            <p>1. Откройте кошелек PGON в Telegram.<br>2. Перейдите в раздел «Виртуальная карта».<br>3. Выберите баланс USDT или TON и укажите сумму пополнения.<br>4. Карта со всеми реквизитами (номер, срок действия, CVV) готова к онлайн-оплате через 30 секунд!</p>
+          `
+        }
+      };
+
+      const modal = document.getElementById('blogModal');
+      const modalClose = document.getElementById('closeBlogModal');
+      const modalBadge = document.getElementById('modalBadge');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalContent = document.getElementById('modalContent');
+
+      document.querySelectorAll('.blog-read-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-article');
+          const data = blogArticles[id];
+          if (data && modal) {
+            modalBadge.textContent = data.badge;
+            modalTitle.textContent = data.title;
+            modalContent.innerHTML = data.content;
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      function closeModal() {
+        if (modal) {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+      }
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
     });
   </script>
 
